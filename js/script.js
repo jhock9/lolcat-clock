@@ -6,20 +6,19 @@ var partyTime = 20; // 10PM
 var napTime = lunchTime + 2; // 2PM
 var time = new Date().getHours(); // NATIVE JAVASCRIPT CODE: represents current hour (1-24)
 var isPartyTime = false; // set isPartyTime to false
-var partTimeButton = document.getElementById("partTimeButton");
-var wakeUpTimeSelector =  document.getElementById("wakeUpTimeSelector");
-var lunchTimeSelector =  document.getElementById("lunchTimeSelector");
-var napTimeSelector =  document.getElementById("napTimeSelector");
+var partTimeButton = document.querySelector("#partTimeButton");
+var wakeUpTimeSelector =  document.querySelector("#wakeUpTimeSelector");
+var lunchTimeSelector =  document.querySelector("#lunchTimeSelector");
+var napTimeSelector =  document.querySelector("#napTimeSelector");
 
 var updateClock = function () {
 	var messageText;
-	var message = document.getElementById("timeEvent");
-	var lolCatImage = document.getElementById("lolcat"); // getting your image element
-	var image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat5.jpg";
-		// defining your default image
+	var message = document.querySelector("#timeEvent");
+	var lolCatImage = document.querySelector("#lolcat"); // getting your image element
+	var image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat5.jpg";	// defining your default image
 
 	if (time == partyTime){
-	   image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat4.jpg";
+    image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat4.jpg";
 		messageText = "IZ PARTEE TIME!!";
 	} else if (time == napTime) {
 		image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat3.jpg";
@@ -48,29 +47,29 @@ var updateClock = function () {
 };
 
 var showCurrentTime = function() { // display the string on the webpage
-    var clock = document.getElementById('clock');
-    var currentTime = new Date();
-    var hours = currentTime.getHours();
-    var minutes = currentTime.getMinutes();
-    var seconds = currentTime.getSeconds();
-    var meridian = "AM";
-    
-    if (hours >= noon) { // Set hours 
-        meridian = "PM"; 
-   	} 
+  var clock = document.getElementById('clock');
+  var currentTime = new Date();
+  var hours = currentTime.getHours();
+  var minutes = currentTime.getMinutes();
+  var seconds = currentTime.getSeconds();
+  var meridian = "AM";
+  
+  if (hours >= noon) { // Set hours 
+    meridian = "PM"; 
+  } 
 	if (hours > noon) { 
-        hours = hours - 12; 
-    }
-    if (minutes < 10) { // Set Minutes
-        minutes = "0" + minutes;
-    }
-    if (seconds < 10) { // Set Seconds
-        seconds = "0" + seconds;
-    }
+    hours = hours - 12; 
+  }
+  if (minutes < 10) { // Set Minutes
+    minutes = "0" + minutes;
+  }
+  if (seconds < 10) { // Set Seconds
+    seconds = "0" + seconds;
+  }
 	
-    var clockTime = hours + ":" + minutes + ":" + seconds + " " + meridian + "!"; // put together the string that displays the time
+  var clockTime = hours + ":" + minutes + ":" + seconds + " " + meridian + "!"; // put together the string that displays the time
 	
-    clock.innerText = clockTime;
+  clock.innerText = clockTime;
 };
 
 updateClock();
@@ -79,15 +78,15 @@ setInterval(updateClock, oneSecond);
 
 var partyEvent = function() {
 	if (isPartyTime === false) { // check isPartyTime
-	   isPartyTime = true; // if isPartyTime is false, change it to true so we know the button has been clicked
-	   time = partyTime; // set time to partyTime so the lolCat clock image and message update to the partyTime image and message
-	   partyTimeButton.innerText = "Party Over"; // update button text so you can click to change it back 
-	   partyTimeButton.style.background = "#0A8DAB";
+    isPartyTime = true; // if isPartyTime is false, change it to true so we know the button has been clicked
+    time = partyTime; // set time to partyTime so the lolCat clock image and message update to the partyTime image and message
+    partyTimeButton.innerText = "Party Over"; // update button text so you can click to change it back 
+    partyTimeButton.style.background = "#0A8DAB";
 	} else {
-	   isPartyTime = false;
-	   time = new Date().getHours();
-	   partyTimeButton.innerText = "PARTY TIME!";
-	   partyTimeButton.style.background ="#222";
+    isPartyTime = false;
+    time = new Date().getHours();
+    partyTimeButton.innerText = "PARTY TIME!";
+    partyTimeButton.style.background ="#222";
 	}
 };
 
