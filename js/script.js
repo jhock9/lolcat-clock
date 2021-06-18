@@ -1,6 +1,6 @@
 var noon = 12; // 12PM
 var evening = 17; // 5PM
-var wakeUpTime = 6; // 6AM
+var wakeUpTime = 8; // 8AM
 var lunchTime = 12; // 12PM
 var partyTime = 20; // 10PM
 var napTime = lunchTime + 2; // 2PM
